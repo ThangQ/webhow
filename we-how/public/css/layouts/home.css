@@ -1,0 +1,326 @@
+@import url("../_var.css");
+.greeting {
+    position: relative;
+    background-image: url("../../img/greeting-backgr.jpg");
+    height: calc(100vh - var(--header-height));
+    background-position: center;
+    background-size: cover;
+}
+.greeting-text {
+    /* TODO: SET TEXT GRADIANT */
+    background-image: linear-gradient(45deg, #ffb300, #a3d6ff, white);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    /* TODO: end */
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: show 3s linear;
+    text-align: center;
+}
+@keyframes show {
+    from {
+        opacity: 0;
+        font-size: 20px;
+    }
+    to {
+        opacity: 1;
+        font-size: 50px;
+    }
+}
+.greeting-svg {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+}
+/* * ======================= HOWTO INTRODUCTION =========================== */
+.howto-intro {
+    width: 100%;
+    height: 60vh;
+    padding: 10px 0 0;
+    background-color: #a4d6fe;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    /* overflow: hidden; */
+}
+.howto-intro::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    border-radius: 90% 0 0 0;
+    z-index: 0;
+}
+.howto-intro__left {
+    width: 40%;
+    height: 100%;
+    z-index: 1;
+}
+
+.howto-intro__card {
+    width: 60%;
+    height: 90%;
+    z-index: 1;
+    margin: 20px auto 0;
+    perspective: 1000px;
+    position: relative;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: 2s;
+    transform-style: preserve-3d;
+    position: relative;
+    border-radius: 10px;
+}
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+.flip-card-front {
+    background-image: url("../../img/greeting-backgr.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+.flip-card-back {
+    background-color: #6aaee5;
+    transform: rotateY(180deg);
+    padding: 10px;
+    font-family: monospace;
+    color: white;
+    font-size: 17px;
+}
+
+.howto-intro__right {
+    width: 70%;
+    height: 100%;
+    padding: 0 20px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.howto-intro__text {
+    padding: 10px 10px 20px;
+    text-align: center;
+    user-select: text;
+    font-size: 20px;
+}
+.howto-intro__link {
+    padding: 10px;
+    background-color: #2ab6e0;
+    box-shadow: 2px 3px 2px #005383;
+    display: inline-block;
+    border-radius: 5px;
+    color: white;
+    font-size: 25px;
+}
+/* *========================== COMMUNITY INTRODUCT =======================*/
+.community-intro {
+    padding-top: 70px;
+    padding-bottom: 150px;
+    position: relative;
+}
+.community-intro__title {
+    text-align: center;
+    margin-bottom: 70px;
+    font-size: 40px;
+    /* text-transform: uppercase; */
+}
+.community-intro__card {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 15px #68a8f1;
+    background-color: var(--secondary-color);
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.community-intro__card::before {
+    position: absolute;
+    content: "";
+    left: -20px;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    border: 5px dashed #86b3ee;
+    border-radius: 50%;
+    z-index: -1;
+}
+.community-intro:hover .community-intro__card::before {
+    animation: rotateD 15s linear 1.5s infinite;
+}
+.community-intro:hover .circle-card {
+    visibility: visible;
+    /* opacity: 1; */
+}
+.community-intro:hover .circle-card-left {
+    transform: translateX(-130%) rotate(-360deg);
+}
+.community-intro:hover .circle-card-right {
+    transform: translateX(130%) rotate(360deg);
+}
+
+.circle-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    visibility: hidden;
+    transition: 2s;
+    z-index: -2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+.circle-card::before {
+    position: absolute;
+    content: "";
+    left: -20px;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+}
+.circle-card-left {
+    background-color: #ffd166;
+    box-shadow: 0 0 15px #fdac7d;
+}
+.circle-card-left::before {
+    border: 5px dashed #ffbf2b;
+    animation: rotateA 15s linear 0s infinite;
+}
+.circle-card-right {
+    background-color: #7fb619;
+    box-shadow: 0 0 15px #84e02e;
+}
+.circle-card-right::before {
+    border: 5px dashed #85dd4a;
+    animation: rotateA 15s linear 0s infinite;
+}
+.circle-card__title {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.community-svg {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+}
+@keyframes rotateA {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+@keyframes rotateD {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* *============================== LIVE CODING INTRODUCT ============================*/
+.live-coding-intro {
+    background-color: #ffd297;
+    padding: 20px 10px;
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+}
+.live-coding-intro::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-left: 95vw solid var(--primary-color);
+    /* border-right: 10px solid transparent; */
+    border-top: 50px solid transparent;
+}
+
+.live-coding__code-typing {
+    transform: rotate(-4deg);
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #322938;
+    box-shadow: -25px -15px 0 10px #757575, 25px -45px 0 10px #eb7648;
+    color: white;
+    font-family: monospace;
+    font-size: 15px;
+    /* visibility: hidden; */
+    transition: 2s;
+    opacity: 0.2;
+    position: relative;
+}
+
+.live-coding-intro:hover .live-coding__code-typing {
+    opacity: 1;
+    box-shadow: -7px 7px 10px #271741;
+}
+.live-coding-intro:hover .code-content {
+    animation: typing 0.75s steps(20) forwards, blink 1s backwards;
+    animation-delay: calc(var(--line) * 0.75s);
+}
+.clr-gr {
+    color: #49d694;
+}
+.clr-yl {
+    color: #ffff00;
+}
+.clr-re {
+    color: #f15b20;
+}
+.live-coding__text {
+    width: 50%;
+}
+.code-content__line {
+    width: fit-content;
+    line-height: 30px;
+}
+.code-content {
+    width: 0%;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+}
+.code-content span {
+    user-select: text;
+}
+@keyframes typing {
+    to {
+        width: 100%;
+    }
+}
+@keyframes blink {
+    100% {
+        border-right: 2px solid;
+    }
+}

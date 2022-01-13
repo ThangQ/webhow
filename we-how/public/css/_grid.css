@@ -1,0 +1,11 @@
+[class*="col"] {
+    float: left;
+    width: 100%;
+}
+.row::before {
+    content: "";
+    clear: both;
+    display: table;
+}
+@media only screen and (max-width: 768px) {
+}

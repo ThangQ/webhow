@@ -1,0 +1,38 @@
+<header>
+    <section class="logo">
+        <a href="/">
+            <h1>WebHow</h1>
+        </a>
+    </section>
+
+    <!-- TODO: Search form -->
+
+
+    <!-- TODO: Navigation -->
+    <nav>
+        <a href="/howto" class="nav__item nav__link">How to</a>
+        <a href="/community" class="nav__item  nav__link">Community</a>
+        <a href="/live-coding" class="nav__item  nav__link">Live coding</a>
+        <div class="dropdown-elem">
+            <span class="nav__item" id="btnAcc">Account</span>
+            <div class="dropdown" id="accDropdown">
+                <a href="/signin" class="btn btn-acc" id="btnSignin">Sign in</a>
+                <a href='signup' class="btn btn-acc" id="btnSignup">Sign up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- TODO -->
+    <section class="header__toolbar">
+        <form action="/search" class="form-search">
+            <select name="searchDestination" title="Select destination">
+                <option value="howto">How to</option>
+                <option value="community">Community</option>
+            </select>
+            <input type="text" name="search" id='txt-search' placeholder="Search">
+            <button class="btn btn-search" id='btn-search'>
+                <ion-icon name="search-outline"></ion-icon>
+            </button>
+        </form>
+    </section>
+</header>
